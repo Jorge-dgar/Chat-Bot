@@ -1,0 +1,14 @@
+<h1> CHAT-BOT 2.0 </h1>
+<div class="chat-container">
+  <div class="chat-box" id="chat-box">
+    <!-- Usamos ngFor para recorrer los mensajes y mostrarlos -->
+    <div *ngFor="let msg of messages" [ngClass]="{'user-message': msg.sender === 'user', 'bot-message': msg.sender === 'bot'}">
+      {{ msg.text }}
+    </div>
+  </div>
+
+  <div class="input-container">
+    <input type="text" [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Escribe un mensaje...">
+    <button (click)="sendMessage()">Enviar</button>
+  </div>
+</div>
